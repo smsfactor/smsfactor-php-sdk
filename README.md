@@ -145,7 +145,8 @@ $response = \SMSFactor\Campaign::history(['length' => 5]); //Get the last 5 camp
 
 ## List
 **Create a liste**
-Your can customize each contact with up to 4 optional informations
+
+You can customize each contact with up to 4 optional informations
 
 ```php
 $response = \SMSFactor\ContactList::create([
