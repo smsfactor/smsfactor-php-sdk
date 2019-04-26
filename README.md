@@ -2,7 +2,7 @@
 
 This is the PHP client library for use SMSFactor's API.
 
-In order to use it, make sure to have an account. You can register [here](https://www.smsfactor.com/en/registration/?utm_source=site-api&utm_campaign=Inscription&spid=17146). Once your account is created, you need to generate your first [API token](http://dev.smsfactor.local/en/api/sms/token/create-token).
+In order to use it, make sure to have an account. You can register [here](https://www.smsfactor.com/en/registration/?utm_source=site-api&utm_campaign=Inscription&spid=17146). Once your account is created, you need to generate your first [API token](https://dev.smsfactor.com/en/api/sms/token/create-token).
 You can find the complete documentation of our API [here](https://dev.smsfactor.com/).
 
 # Installation
@@ -17,7 +17,7 @@ We recommend using [Composer](https://getcomposer.org/) to install the PHP clien
 Make sure to autoload the library in your bootstrap file :
 
 ```php
-require_once "vendor/autoload.php";
+require_once __dir__ . 'vendor/autoload.php';
 ```
 
 Set your token :
