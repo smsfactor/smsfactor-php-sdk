@@ -1,6 +1,6 @@
 # SMSFactor Client library for PHP
 
-This is the PHP client library for use SMSFactor's API.
+The PHP client library makes it easy for developers to use SMSFactor's API.
 
 In order to use it, make sure to have an account. You can register [here](https://www.smsfactor.com/en/registration/?utm_source=github&utm_campaign=Inscription&spid=17146). Once your account is created, you need to generate your first [API token](https://dev.smsfactor.com/en/api/sms/token/create-token).
 You can find the complete documentation of our API [here](https://dev.smsfactor.com/).
@@ -144,9 +144,9 @@ $response = \SMSFactor\Campaign::history(['length' => 5]); //Get the last 5 camp
 ```
 
 ## List
-**Create a liste**
+**Create a list**
 
-You can customize each contact with up to 4 optional informations
+You can customize each contact with up to 4 optional information
 
 ```php
 $response = \SMSFactor\ContactList::create([
@@ -199,7 +199,7 @@ $response = \SMSFactor\ContactList::create([
 ]);
 ```
 
-**Get list**
+**Get a list**
 
 ```php
 $response = \SMSFactor\ContactList::get($list_id);
