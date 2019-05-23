@@ -106,7 +106,7 @@ $response = \SMSFactor\Campaign::send([
    
 ```php
 $delay = date('Y-m-d H:i:s', strtotime('+1 hour')); // now + 1 hour
-$response = \SMSFactor\Campaign::send([
+$response = \SMSFactor\Campaign::sendToLists([
     'sms' => [
 	    'message' => [
 		    'text' => 'test skd php',
@@ -176,7 +176,7 @@ $list_id = $response->id
 **Add contacts to a list**
 
 ```php
-$response = \SMSFactor\ContactList::create([
+$response = \SMSFactor\ContactList::addContacts([
     'list' => [
 	    'list_id' => $list_id
 	    'contacts' => [
@@ -233,7 +233,7 @@ $response = \SMSFactor\ContactList::delete($list_id);
    
 
 ```php
- $response = \SMSFactor\ContactList::create([
+ $response = \SMSFactor\ContactList::addToBlacklist([
 	'blacklist' => [
 		'contacts' => [
 			'gsm' => [
@@ -260,7 +260,7 @@ $response = \SMSFactor\ContactList::blacklist();
 
    
 ```php
-$response = \SMSFactor\ContactList::create([
+$response = \SMSFactor\ContactList::addToNpai([
 	'npai' => [
 		'contacts' => [
 			'gsm' => [
