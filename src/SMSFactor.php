@@ -14,6 +14,9 @@ class SMSFactor
     
     // @var string The base URL for the SMSFactor API.
     public static $apiBase = 'https://api.smsfactor.com';
+
+    // @var string The application code. Do not manually change it.
+    public static $applicationCode = 15;
     
     /**
      * Sets the API token to be used for requests.
@@ -23,5 +26,15 @@ class SMSFactor
     public static function setApiToken($apiToken)
     {
         self::$apiToken = $apiToken;
+    }
+
+    /**
+     * Sets the application code for the requests.
+     *
+     * @param string $applicationCode
+     */
+    public static function setApplicationCode($applicationCode)
+    {
+        self::$applicationCode = $applicationCode;
     }
 }

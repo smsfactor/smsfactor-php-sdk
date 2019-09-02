@@ -18,6 +18,11 @@ class ApiRequestor
      * @var string
      */
     private $_apiBase;
+
+    /**
+     * @var string
+     */
+    private $_applicationCode;
     
     /**
      * @var HttpClient\ClientInterface
@@ -30,7 +35,7 @@ class ApiRequestor
      * @param string|null $apiToken
      * @param string|null $apiBase
      */
-    public function __construct($apiToken = null, $apiBase = null)
+    public function __construct($apiToken = null, $apiBase = null, $applicationCode  = null)
     {
         if (!$apiToken) {
             $apiToken = SMSFactor::$apiToken;
@@ -40,6 +45,10 @@ class ApiRequestor
             $apiBase = SMSFactor::$apiBase;
         }
         $this->_apiBase = $apiBase;
+        if (!$applicationCode) {
+            $applicationCode = SMSFactor::$applicationCode;
+        }
+        $this->_applicationCode = $applicationCode;
     }
     
     /**
@@ -74,11 +83,11 @@ class ApiRequestor
      *
      * @return array
      */
-    private static function _defaultHeaders($apiToken)
+    private static function _defaultHeaders($apiToken, $applicationCode)
     {
         $defaultHeaders = [
             'Accept' => 'application/json',
-            'X-application' => 15,
+            'X-application' => $applicationCode,
             'Authorization' => 'Bearer ' . $apiToken,
         ];
         return $defaultHeaders;
@@ -97,13 +106,14 @@ class ApiRequestor
     private function _requestRaw($method, $url, $params, $queryStringParams)
     {
         $myApiToken = $this->_apiToken;
+        $applicationCode = $this->_applicationCode;
         if (!$myApiToken) {
             $msg = 'No API token provided.  (HINT: set your API key using '
                 . '"SMSFactor::setApiToken(<API-TOKEN>)".';
             throw new Error\Authentication($msg);
         }
         
-        $defaultHeaders = $this->_defaultHeaders($myApiToken);
+        $defaultHeaders = $this->_defaultHeaders($myApiToken, $applicationCode);
         $response = $this->httpClient()->request(
             $method,
             $this->_apiBase . $url,
