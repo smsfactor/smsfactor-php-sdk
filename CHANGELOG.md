@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2021-01-27
+### Added
+- Bumped Guzzle minimum version requirement to make it compatible with the Laravel package
+
 ## [1.0.1] - 2019-09-02
 ### Added
 - Application code setter
