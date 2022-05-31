@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2022-05-31
+### Added
+- Bumped guzzlehttp/guzzle to 7.4.3 to fix vulnerability issue
+
 ## [1.0.2] - 2021-01-27
 ### Added
 - Bumped Guzzle minimum version requirement to make it compatible with the Laravel package
