@@ -139,6 +139,21 @@ class ContactList extends ApiResource
         
         return $response;
     }
+
+    /**
+     * Remove a single contact from your blacklist.
+     *
+     * @param int $id Id of the contact in the blacklist.
+     *
+     * @return ApiResponse The api response.
+     */
+    public static function removeBlacklistContact($id)
+    {
+        $url = "/blacklist/contact/{$id}";
+        $response = self::_staticRequest('delete', $url);
+        
+        return $response;
+    }
     
     /**
      * Get your NPAI list (unassigned numbers).
