@@ -18,7 +18,7 @@ class ApiResponse
      * @param string     $body
      * @param integer    $code
      * @param array|null $headers
-     * @param array|null $json
+     * @param object|null $json
      *
      * @return obj An APIResponse
      */
@@ -55,7 +55,7 @@ class ApiResponse
     }
     
     /**
-     * @return array The response json
+     * @return object The response json
      */
     public function getJson()
     {
