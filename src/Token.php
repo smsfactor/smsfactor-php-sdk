@@ -37,6 +37,19 @@ class Token extends ApiResource
     }
     
     /**
+     * Create a token for a subaccount
+     *
+     * @return ApiResponse The api response.
+     */
+    public static function createForSubAccount($accountId, $params = null)
+    {
+        $url = "/token/account/{$accountId}";
+        $response = self::_staticRequest('post', $url, $params);
+        
+        return $response;
+    }
+    
+    /**
      * Delete one of your tokens.
      *
      * @param int Id of the token.
