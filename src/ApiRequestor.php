@@ -35,7 +35,7 @@ class ApiRequestor
      * @param string|null $apiToken
      * @param string|null $apiBase
      */
-    public function __construct($apiToken = null, $apiBase = null, $applicationCode  = null)
+    public function __construct($apiToken = null, $apiBase = null, $applicationCode = null)
     {
         if (!$apiToken) {
             $apiToken = SMSFactor::$apiToken;
@@ -158,11 +158,12 @@ class ApiRequestor
      * @param array  $rheaders
      * @param array  $resp
      *
-     * @throws Error\Authentication      if the error is caused by a bad token.
-     * @throws Error\InsufficientCredits if the error is caused by insuffient credits for the action.
-     * @throws Error\InvalidRequest      if the error is caused by an invalid request.
-     * @throws Error\Unknown             if the error is caused by an unknown reason.
-     * @throws Error\Api                 otherwise.
+     * @throws Error\Authentication         if the error is caused by a bad token.
+     * @throws Error\InsufficientCredits    if the error is caused by insuffient credits for the action.
+     * @throws Error\InvalidRequest         if the error is caused by an invalid request.
+     * @throws Error\Moderation             if the error is caused by a campaign being under moderation.
+     * @throws Error\Unknown                if the error is caused by an unknown reason.
+     * @throws Error\Api                    otherwise.
      */
     public function handleErrorResponse($rbody, $rcode, $rheaders, $resp)
     {
@@ -177,6 +178,7 @@ class ApiRequestor
                 -3  => 'InsufficientCredits',       // Insufficient credits
                 -6  => 'InvalidRequest',            // JSON error
                 -7  => 'InvalidRequest',            // Data error
+                -8  => 'Moderation',                // Campaign under moderation by an admin, should be accepted fairly quickly. For any emergency campaign, please send an email to support@smsfactor.com with the word 'Moderation in the object of the email'
                 -99 => 'Unknown',                   // Unknown error
             ];
             $msg = property_exists($resp, 'details') ? $resp->details : null;
